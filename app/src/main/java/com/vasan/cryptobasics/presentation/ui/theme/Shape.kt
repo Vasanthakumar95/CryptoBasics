@@ -1,4 +1,4 @@
-package com.vasan.cryptobasics.ui.theme
+package com.vasan.cryptobasics.presentation.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
