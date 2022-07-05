@@ -20,6 +20,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.accompanist.flowlayout.FlowRow
 import com.vasan.cryptobasics.presentation.coin_details.components.CoinTag
 import com.vasan.cryptobasics.presentation.coin_details.components.TeamListItem
+import com.vasan.cryptobasics.presentation.coin_details.components.VideoPlayer
+import com.vasan.cryptobasics.presentation.ui.theme.ColorPrimary
+import com.vasan.cryptobasics.presentation.ui.theme.MediumGray
 
 @Composable
 fun CoinDetailsScreen(
@@ -30,21 +33,27 @@ fun CoinDetailsScreen(
         state.coin?.let { coin ->
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
-                contentPadding = PaddingValues(20.dp)
+                contentPadding = PaddingValues(15.dp)
             ) {
                 item {
+                    if (!coin.links.youtube.isNullOrEmpty()){
+                        Column(modifier = Modifier.aspectRatio(16 / 9f)) {
+                            VideoPlayer(url = coin.links.youtube[0])
+                        }
+                        Spacer(modifier = Modifier.height(20.dp))
+                    }
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(
                             text = "${coin.rank}. ${coin.name} (${coin.symbols})",
-                            style = MaterialTheme.typography.h2,
+                            style = MaterialTheme.typography.h4,
                             modifier = Modifier.weight(8f)
                         )
                         Text(
                             text = if (coin.isActive) "active" else "inactive",
-                            color = if (coin.isActive) Color.Cyan else Color.Red,
+                            color = if (coin.isActive) ColorPrimary else MediumGray,
                             fontStyle = FontStyle.Italic,
                             textAlign = TextAlign.End,
                             modifier = Modifier
@@ -60,7 +69,7 @@ fun CoinDetailsScreen(
                     Spacer(modifier = Modifier.height(15.dp))
                     Text(
                         text = "Tags",
-                        style = MaterialTheme.typography.h3
+                        style = MaterialTheme.typography.h4
                     )
                     Spacer(modifier = Modifier.height(15.dp))
                     FlowRow(
@@ -73,20 +82,24 @@ fun CoinDetailsScreen(
                         }
                     }
                     Spacer(modifier = Modifier.height(15.dp))
-                    Text(
-                        text = "Team Members",
-                        style = MaterialTheme.typography.h3
-                    )
-                    Spacer(modifier = Modifier.height(15.dp))
+                    if(!coin.team.isEmpty()){
+                        Text(
+                            text = "Team Members",
+                            style = MaterialTheme.typography.h4
+                        )
+                        Spacer(modifier = Modifier.height(15.dp))
+                    }
                 }
-                items(coin.team){ teamMember ->
-                    TeamListItem(
-                        teamMember = teamMember,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(10.dp)
-                    )
-                    Divider()
+                if(!coin.team.isEmpty()){
+                    items(coin.team){ teamMember ->
+                        TeamListItem(
+                            teamMember = teamMember,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(10.dp)
+                        )
+                        Divider()
+                    }
                 }
             }
         }
@@ -106,6 +119,8 @@ fun CoinDetailsScreen(
         }
     }
 }
+
+
 
 @Preview(showBackground = true)
 @Composable

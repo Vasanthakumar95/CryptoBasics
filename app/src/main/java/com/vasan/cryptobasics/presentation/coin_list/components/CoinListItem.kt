@@ -15,6 +15,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.vasan.cryptobasics.domain.model.Coin
+import com.vasan.cryptobasics.presentation.ui.theme.ColorPrimary
+import com.vasan.cryptobasics.presentation.ui.theme.MediumGray
 
 @Composable
 fun CoinListItem(
@@ -37,7 +39,7 @@ fun CoinListItem(
 
         Text(
             text = if (coin.isActive) "active" else "inactive",
-            color = if (coin.isActive) Color.Cyan else Color.Red,
+            color = if (coin.isActive) ColorPrimary else MediumGray,
             fontStyle = FontStyle.Italic,
             textAlign = TextAlign.End,
             style = MaterialTheme.typography.body2,

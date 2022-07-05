@@ -50,6 +50,7 @@ fun CoinDetailsDTO.toCoinDetails(): CoinDetails {
         rank = rank,
         isActive = isActive,
         tags = tags.map { it.name },
-        team = team
+        team = team,
+        links = links
     )
 }
