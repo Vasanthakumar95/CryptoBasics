@@ -1,5 +1,6 @@
 package com.vasan.cryptobasics.presentation
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -9,12 +10,15 @@ import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.twotone.List
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -25,11 +29,29 @@ import com.vasan.cryptobasics.presentation.ui.theme.DarkGray
 import com.vasan.cryptobasics.presentation.ui.theme.MediumGray
 import com.vasan.cryptobasics.presentation.ui.theme.TextWhite
 
+
+sealed class BottomNavItem(
+    val route: String,
+    val titleResId: String,
+    val icon: ImageVector
+){
+    object Home: BottomNavItem(
+        route = Screen.CoinListScreen.route,
+        titleResId = "Home",
+        icon = Icons.Default.Home
+    )
+    object News: BottomNavItem(
+        route = Screen.NewsScreen.route,
+        titleResId = "Crypto News",
+        icon = Icons.TwoTone.List
+    )
+}
+
 @Composable
 fun BottomNav(navController: NavController){
     val items = listOf(
-        Screen.CoinListScreen,
-        Screen.NewsScreen
+        BottomNavItem.Home,
+        BottomNavItem.News
     )
     BottomNavigation(
         backgroundColor = DarkGray,
@@ -39,9 +61,11 @@ fun BottomNav(navController: NavController){
         val currentRoute = navBackStackEntry?.destination?.route
         items.forEach { item ->
             BottomNavigationItem(
-                icon = { if (item.route == Screen.CoinListScreen.route) (Icon(painterResource(id = R.drawable.ic_icon_stripped),null, modifier = Modifier.size(20.dp)))
-                else (Icon(Icons.Default.List, null, modifier = Modifier.size(20.dp)))},
-                label = { if (item.route == Screen.CoinListScreen.route) Text(text = "HOME", fontSize = 12.sp) else Text(text = "NEWS", fontSize = 12.sp)},
+                icon = { Icon(
+                    imageVector = item.icon,
+                    contentDescription = item.titleResId)
+                 },
+                label = { Text(text = item.titleResId) },
                 selectedContentColor = ColorPrimary,
                 unselectedContentColor = MediumGray,
                 alwaysShowLabel = true,
