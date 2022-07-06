@@ -8,6 +8,7 @@ import com.vasan.cryptobasics.presentation.Screen
 import com.vasan.cryptobasics.presentation.coin_details.CoinDetailsScreen
 import com.vasan.cryptobasics.presentation.coin_list.components.CoinListScreen
 import com.vasan.cryptobasics.presentation.splash.SplashScreen
+import com.vasan.cryptobasics.presentation.web_view.WebViewerScreen
 
 @Composable
 fun SetupNavGraph(navController: NavHostController){
@@ -28,7 +29,12 @@ fun SetupNavGraph(navController: NavHostController){
         composable(
             route = Screen.CoinDetailsScreen.route + "/{coinId}"
         ){
-            CoinDetailsScreen()
+            CoinDetailsScreen(navController)
+        }
+        composable(
+            route = Screen.WebViewerScreen.route + "/{urlLink}"
+        ){
+            WebViewerScreen()
         }
     }
 }

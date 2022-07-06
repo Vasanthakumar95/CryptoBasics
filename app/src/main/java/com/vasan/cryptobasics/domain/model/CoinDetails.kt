@@ -12,5 +12,6 @@ class CoinDetails (
     val isActive: Boolean,
     val tags: List<String>,
     val team: List<TeamMember>,
-    val links: Links
+    val links: Links,
+    val webLinks: List<String>
 )

@@ -51,6 +51,7 @@ fun CoinDetailsDTO.toCoinDetails(): CoinDetails {
         isActive = isActive,
         tags = tags.map { it.name },
         team = team,
-        links = links
+        links = links,
+        webLinks = linksExtended.map { it.url }
     )
 }
