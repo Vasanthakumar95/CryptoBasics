@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import com.vasan.cryptobasics.presentation.Screen
 import com.vasan.cryptobasics.presentation.coin_details.CoinDetailsScreen
 import com.vasan.cryptobasics.presentation.coin_list.components.CoinListScreen
+import com.vasan.cryptobasics.presentation.learn.LearnScreen
 import com.vasan.cryptobasics.presentation.news_screen.NewsScreen
 import com.vasan.cryptobasics.presentation.splash.SplashScreen
 import com.vasan.cryptobasics.presentation.web_view.WebViewerScreen
@@ -36,6 +37,11 @@ fun SetupNavGraph(navController: NavHostController){
             route = Screen.NewsScreen.route
         ){
             NewsScreen(navController)
+        }
+        composable(
+            route = Screen.LearnScreen.route
+        ){
+            LearnScreen(navController)
         }
         composable(
             route = Screen.WebViewerScreen.route + "/{urlLink}"

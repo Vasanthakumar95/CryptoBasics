@@ -1,22 +1,36 @@
 package com.vasan.cryptobasics.presentation.coin_list.components
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.vasan.cryptobasics.presentation.Screen
 import com.vasan.cryptobasics.presentation.coin_list.CoinListViewModel
 import com.vasan.cryptobasics.presentation.coin_list.CoinSummaryViewModel
+import com.vasan.cryptobasics.presentation.ui.theme.ColorPrimary
+import com.vasan.cryptobasics.presentation.ui.theme.ColorPrimary2
+import com.vasan.cryptobasics.presentation.ui.theme.DarkGray
+import com.vasan.cryptobasics.R
 
 @Composable
 fun CoinListScreen(
@@ -30,7 +44,43 @@ fun CoinListScreen(
         modifier = Modifier.fillMaxSize()
     ) {
 
-        Spacer(modifier = Modifier.height(15.dp))
+        /**
+         * adjust the welcome card view
+         */
+        Card(
+            modifier = Modifier
+                .padding(10.dp)
+                .fillMaxWidth(),
+            elevation = 4.dp,
+            backgroundColor = Color.Transparent,
+            shape = RoundedCornerShape(12.dp)
+        ){
+            Column(modifier = Modifier
+                .fillMaxWidth()
+                .background(
+                    brush = Brush.linearGradient(
+                        colors = listOf(ColorPrimary2, ColorPrimary),
+                        start = Offset(0f, Float.POSITIVE_INFINITY),
+                        end = Offset(Float.POSITIVE_INFINITY, 0f)
+                    ), RoundedCornerShape(12.dp)).padding(10.dp),
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.ic_icon),
+                    contentDescription = "",
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.size(56.dp).align(Alignment.CenterHorizontally),
+
+                )
+                Text(
+                    text = "WELCOME",
+                    style = MaterialTheme.typography.h4,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
+                    color = DarkGray
+                )
+            }
+        }
+
         Text(
             text = "TOP 20 COINS",
             style = MaterialTheme.typography.h6,

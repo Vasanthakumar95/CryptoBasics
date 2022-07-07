@@ -6,6 +6,7 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.twotone.List
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -32,11 +33,18 @@ sealed class BottomNavItem(
         titleResId = "Crypto News",
         icon = Icons.TwoTone.List
     )
+
+    object Learn: BottomNavItem(
+        route = Screen.LearnScreen.route,
+        titleResId = "Learn",
+        icon = Icons.Filled.Info
+    )
 }
 
 @Composable
 fun BottomNav(navController: NavController){
     val items = listOf(
+        BottomNavItem.Learn,
         BottomNavItem.Home,
         BottomNavItem.News
     )
