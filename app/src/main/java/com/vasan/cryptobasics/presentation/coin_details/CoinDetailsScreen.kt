@@ -1,6 +1,5 @@
 package com.vasan.cryptobasics.presentation.coin_details
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
@@ -25,7 +24,6 @@ import com.vasan.cryptobasics.presentation.coin_details.components.TeamListItem
 import com.vasan.cryptobasics.presentation.coin_details.components.VideoPlayer
 import com.vasan.cryptobasics.presentation.coin_details.components.WebLinkListItem
 import com.vasan.cryptobasics.presentation.ui.theme.ColorPrimary
-import com.vasan.cryptobasics.presentation.ui.theme.DarkGray
 import com.vasan.cryptobasics.presentation.ui.theme.MediumGray
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
