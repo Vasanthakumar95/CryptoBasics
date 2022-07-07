@@ -12,13 +12,13 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.vasan.cryptobasics.R
 import com.vasan.cryptobasics.presentation.Screen
+import com.vasan.cryptobasics.presentation.ui.theme.ColorPrimary
 import com.vasan.cryptobasics.presentation.ui.theme.DarkGray
 import kotlinx.coroutines.delay
 
@@ -57,7 +57,8 @@ fun Splash(alpha: Float) {
                 .size(120.dp)
                 .alpha(alpha = alpha),
             painter = painterResource(id = R.drawable.ic_icon_stripped),
-            contentDescription = "Logo Icon"
+            contentDescription = "Logo Icon",
+            tint = ColorPrimary
         )
     }
 }
