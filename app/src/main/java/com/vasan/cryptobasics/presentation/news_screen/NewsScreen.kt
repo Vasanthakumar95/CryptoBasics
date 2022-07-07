@@ -1,5 +1,6 @@
 package com.vasan.cryptobasics.presentation.news_screen
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,14 +13,13 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.vasan.cryptobasics.presentation.news_screen.components.NewsListItems
 import com.vasan.cryptobasics.presentation.Screen
+import com.vasan.cryptobasics.presentation.ui.theme.MediumGray
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 
@@ -30,7 +30,7 @@ fun NewsScreen(
 ){
     val state = viewModel.state.value
     Box(modifier = Modifier.fillMaxSize()){
-        LazyColumn(modifier = Modifier.fillMaxSize()){
+        LazyColumn(modifier = Modifier.fillMaxSize().background(MediumGray)){
             items(state.news){ news ->
                 NewsListItems(
                     news = news,
