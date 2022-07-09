@@ -34,17 +34,17 @@ sealed class BottomNavItem(
         icon = Icons.TwoTone.List
     )
 
-    object Learn: BottomNavItem(
-        route = Screen.LearnScreen.route,
-        titleResId = "Learn",
-        icon = Icons.Filled.Info
-    )
+//    object Learn: BottomNavItem(
+//        route = Screen.LearnScreen.route,
+//        titleResId = "Learn",
+//        icon = Icons.Filled.Info
+//    )
 }
 
 @Composable
 fun BottomNav(navController: NavController){
     val items = listOf(
-        BottomNavItem.Learn,
+//        BottomNavItem.Learn,
         BottomNavItem.Home,
         BottomNavItem.News
     )

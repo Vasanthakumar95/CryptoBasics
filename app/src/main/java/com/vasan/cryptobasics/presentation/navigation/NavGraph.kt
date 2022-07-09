@@ -38,11 +38,11 @@ fun SetupNavGraph(navController: NavHostController){
         ){
             NewsScreen(navController)
         }
-        composable(
-            route = Screen.LearnScreen.route
-        ){
-            LearnScreen(navController)
-        }
+//        composable(
+//            route = Screen.LearnScreen.route
+//        ){
+//            LearnScreen(navController)
+//        }
         composable(
             route = Screen.WebViewerScreen.route + "/{urlLink}"
         ){

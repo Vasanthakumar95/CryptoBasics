@@ -4,6 +4,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -11,6 +13,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontStyle
@@ -21,6 +26,7 @@ import coil.request.ImageRequest
 import com.vasan.cryptobasics.data.remote.dto.New
 import com.vasan.cryptobasics.presentation.ui.theme.ColorPrimary
 import com.vasan.cryptobasics.presentation.ui.theme.DarkGray
+import com.vasan.cryptobasics.presentation.ui.theme.MediumGray
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -30,16 +36,24 @@ fun NewsListItems(
     news: New,
     onItemClick: (New) -> Unit
 ){
-    Surface(
+    Card(
         modifier = Modifier
-            .fillMaxWidth()
-            .clickable { onItemClick(news) }
-            .padding(10.dp)
+            .fillMaxWidth().padding(10.dp)
+            .clickable { onItemClick(news) },
+
+        elevation = 4.dp,
+        backgroundColor = Color.Transparent,
+        shape = RoundedCornerShape(12.dp)
     ) {
         Column(
             modifier = Modifier
-                .background(DarkGray)
-                .padding(10.dp)
+                .background(
+                    brush = Brush.linearGradient(
+                        colors = listOf(DarkGray, MediumGray),
+                        start = Offset(0f, Float.POSITIVE_INFINITY),
+                        end = Offset(Float.POSITIVE_INFINITY, 0f)
+                    )
+                ).padding(10.dp)
         ) {
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)

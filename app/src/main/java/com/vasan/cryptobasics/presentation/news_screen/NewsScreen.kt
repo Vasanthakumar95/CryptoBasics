@@ -14,6 +14,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.vasan.cryptobasics.presentation.news_screen.components.NewsListItems
 import com.vasan.cryptobasics.presentation.Screen
+import com.vasan.cryptobasics.presentation.ui.theme.DarkGray
 import com.vasan.cryptobasics.presentation.ui.theme.MediumGray
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
@@ -32,7 +33,7 @@ fun NewsScreen(
         Box(modifier = Modifier.fillMaxSize()){
             LazyColumn(modifier = Modifier
                 .fillMaxSize()
-                .background(MediumGray)){
+                .background(DarkGray)){
                 items(state.news){ news ->
                     NewsListItems(
                         news = news,
