@@ -145,6 +145,7 @@ fun CoinListScreen(
                     )
                 }
             }
+
             if (state.error.isNotBlank()){
                 Text(
                     text = state.error,
@@ -156,6 +157,7 @@ fun CoinListScreen(
                         .align(Alignment.Center)
                 )
             }
+
             if (state.isLoading){
                 CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
             }

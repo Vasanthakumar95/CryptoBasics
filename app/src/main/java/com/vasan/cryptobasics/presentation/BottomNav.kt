@@ -7,12 +7,14 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.twotone.List
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.vasan.cryptobasics.R
 import com.vasan.cryptobasics.presentation.ui.theme.ColorPrimary
 import com.vasan.cryptobasics.presentation.ui.theme.DarkGray
 import com.vasan.cryptobasics.presentation.ui.theme.MediumGray
@@ -33,12 +35,11 @@ sealed class BottomNavItem(
         titleResId = "Crypto News",
         icon = Icons.TwoTone.List
     )
-
-//    object Learn: BottomNavItem(
-//        route = Screen.LearnScreen.route,
-//        titleResId = "Learn",
-//        icon = Icons.Filled.Info
-//    )
+    object Contact: BottomNavItem(
+        route = Screen.ContactScreen.route,
+        titleResId = "Contact",
+        icon = Icons.Default.Person
+    )
 }
 
 @Composable
@@ -46,7 +47,8 @@ fun BottomNav(navController: NavController){
     val items = listOf(
 //        BottomNavItem.Learn,
         BottomNavItem.Home,
-        BottomNavItem.News
+        BottomNavItem.News,
+        BottomNavItem.Contact
     )
     BottomNavigation(
         backgroundColor = DarkGray,
