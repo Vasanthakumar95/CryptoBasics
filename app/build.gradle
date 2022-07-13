@@ -6,14 +6,22 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\User\\Desktop\\Playstore Keys\\AndroidKeystoreVasan.jks')
+            storePassword 'Vasanthakumar!95'
+            keyAlias 'crypto_basics'
+            keyPassword 'Vasanthakumar!95'
+        }
+    }
     compileSdk 32
 
     defaultConfig {
         applicationId "com.vasan.cryptobasics"
         minSdk 21
         targetSdk 32
-        versionCode 2
-        versionName "1.1.0"
+        versionCode 3
+        versionName "1.1.1"
 
         /**
          * versioning convention
@@ -36,9 +44,10 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled true
             shrinkResources true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
