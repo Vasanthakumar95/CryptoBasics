@@ -1,10 +1,11 @@
 # CryptoBasics
-Crypto app for crypto beginners
+The app was built as a part of learning Jetpack Compose.
 
 <img src = "sc/Feature Graphics.png" width ="1024" /> 
 
 [Playstore Link](https://play.google.com/store/apps/details?id=com.vasan.cryptobasics)
 
+### Stacks
 - [Jetpack Compose](https://developer.android.com/jetpack/compose)
 - [Kotlin Coroutines](https://developer.android.com/kotlin/coroutines?gclid=CjwKCAjwj6SEBhAOEiwAvFRuKKXAVffTbMzF5R2cZYPvXRCR-cnlfgjncIxXBK59y9m86KftO_aqdBoCoS0QAvD_BwE&gclsrc=aw.ds)
 - [MVVM Architecture & ViewModel](https://developer.android.com/jetpack/guide?gclid=CjwKCAjwj6SEBhAOEiwAvFRuKHuHt1pTUyslihJ4oyClRc4S3v-ZD24xObP0sz972zFaZGvGcAaleBoCIJMQAvD_BwE&gclsrc=aw.ds)
@@ -21,9 +22,11 @@ Crypto app for crypto beginners
 
 <img src = "sc/cryptobasics-1.png" width ="300" /><img src = "sc/cryptobasics-3.png" width ="300" /><img src = "sc/cryptobasics-5.png" width ="300" /> 
 
-### APi Sources
+### API Sources
+The api used in this project is sourced from public api, where as no api key is required.
 
 - [Coin Paprika](https://api.coinpaprika.com/)
 - [Coin Stats](https://documenter.getpostman.com/view/5734027/RzZ6Hzr3)
 
+### Credits
 
