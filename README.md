@@ -1,6 +1,8 @@
 # CryptoBasics
 Crypto app for crypto beginners
 
+<img src = "sc/Feature Graphics.png" width ="1024" /> 
+
 [Playstore Link](https://play.google.com/store/apps/details?id=com.vasan.cryptobasics)
 
 - [Jetpack Compose](https://developer.android.com/jetpack/compose)
@@ -16,6 +18,8 @@ Crypto app for crypto beginners
 - [Lottie](https://github.com/airbnb/lottie-android)
 
 ### UI Screen Shot
+
+<img src = "sc/cryptobasics-1.png" width ="300" /><img src = "sc/cryptobasics-3.png" width ="300" /><img src = "sc/cryptobasics-5.png" width ="300" /> 
 
 
 
