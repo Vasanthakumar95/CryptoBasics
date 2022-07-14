@@ -21,6 +21,9 @@ Crypto app for crypto beginners
 
 <img src = "sc/cryptobasics-1.png" width ="300" /><img src = "sc/cryptobasics-3.png" width ="300" /><img src = "sc/cryptobasics-5.png" width ="300" /> 
 
+### APi Sources
 
+- [Coin Paprika](https://api.coinpaprika.com/)
+- [Coin Stats](https://documenter.getpostman.com/view/5734027/RzZ6Hzr3)
 
 
