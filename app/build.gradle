@@ -8,10 +8,10 @@ plugins {
 android {
     signingConfigs {
         release {
-            storeFile file('C:\\Users\\User\\Desktop\\Playstore Keys\\AndroidKeystoreVasan.jks')
-            storePassword 'Vasanthakumar!95'
-            keyAlias 'crypto_basics'
-            keyPassword 'Vasanthakumar!95'
+            storeFile file('C:\\#########\\#########\\#########.jks')
+            storePassword '#########'
+            keyAlias '#########'
+            keyPassword '#########'
         }
     }
     compileSdk 32
